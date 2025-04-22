@@ -1,7 +1,7 @@
-import 'package:fast_app_base/common/common.dart';
-import 'package:fast_app_base/common/widget/round_button_theme.dart';
-import 'package:fast_app_base/common/widget/w_round_button.dart';
-import 'package:fast_app_base/screen/dialog/d_message.dart';
+import 'package:ttos_app/common/common.dart';
+import 'package:ttos_app/common/widget/round_button_theme.dart';
+import 'package:ttos_app/common/widget/w_round_button.dart';
+import 'package:ttos_app/screen/dialog/d_message.dart';
 import 'package:flutter/material.dart';
 
 import '../../../dialog/d_color_bottom.dart';
@@ -64,7 +64,13 @@ class HomeFragment extends StatelessWidget {
           onTap: () {
             context.showErrorSnackbar('error');
           },
-          child: '에러 보여주기 버튼'.text.white.size(13).make().centered().pSymmetric(h: 10, v: 5),
+          child: '에러 보여주기 버튼'
+              .text
+              .white
+              .size(13)
+              .make()
+              .centered()
+              .pSymmetric(h: 10, v: 5),
         ));
   }
 

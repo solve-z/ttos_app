@@ -1,5 +1,5 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:fast_app_base/screen/opensource/s_opensource.dart';
+import 'package:ttos_app/screen/opensource/s_opensource.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -45,7 +45,8 @@ class _MenuDrawerState extends State<MenuDrawer> {
               padding: const EdgeInsets.only(top: 10),
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
+                      topRight: Radius.circular(5),
+                      bottomRight: Radius.circular(5)),
                   color: context.colors.background),
               child: isSmallScreen(context)
                   ? SingleChildScrollView(
@@ -174,13 +175,16 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     DropdownButton<String>(
                       items: [
                         menu(currentLanguage),
-                        menu(Language.values.where((element) => element != currentLanguage).first),
+                        menu(Language.values
+                            .where((element) => element != currentLanguage)
+                            .first),
                       ],
                       onChanged: (value) async {
                         if (value == null) {
                           return;
                         }
-                        await context.setLocale(Language.find(value.toLowerCase()).locale);
+                        await context.setLocale(
+                            Language.find(value.toLowerCase()).locale);
                       },
                       value: describeEnum(currentLanguage).capitalizeFirst,
                       underline: const SizedBox.shrink(),
@@ -234,7 +238,8 @@ class _MenuWidget extends StatelessWidget {
   final String text;
   final Function() onTap;
 
-  const _MenuWidget(this.text, {Key? key, required this.onTap}) : super(key: key);
+  const _MenuWidget(this.text, {Key? key, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:fast_app_base/common/common.dart';
+import 'package:ttos_app/common/common.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/widget/round_button_theme.dart';
@@ -31,7 +31,8 @@ class FavoriteFragment extends StatelessWidget {
                       const Row(),
                       RoundButton(
                         text: '즐겨찾기 화면 띄우기',
-                        onTap: () => Nav.push(const FavoriteFragment(isShowBackButton: true),
+                        onTap: () => Nav.push(
+                            const FavoriteFragment(isShowBackButton: true),
                             context: context),
                         theme: RoundButtonTheme.blue,
                       ),
