@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ttos_app/common/common.dart';
+import 'package:ttos_app/screen/notification/s_notification.dart';
 
 class TtossAppBar extends StatefulWidget {
   static const double appBarHeight = 60;
@@ -33,7 +34,8 @@ class _TtossAppBarState extends State<TtossAppBar> {
           Tap(
             onTap: () {
               setState(() {
-                _showRedDot = !_showRedDot;
+                //알림 화면
+                Nav.push(NotificationScreen());
               });
             },
             child: Stack(
