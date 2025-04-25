@@ -3,6 +3,7 @@ import 'package:ttos_app/common/common.dart';
 import 'package:ttos_app/common/widget/w_arrow.dart';
 import 'package:ttos_app/common/widget/w_long_button.dart';
 import 'package:ttos_app/common/widget/w_rounded_container.dart';
+import 'package:ttos_app/screen/main/tab/stock/tab/w_interest_stock_list.dart';
 
 class MyStockFragment extends StatelessWidget {
   const MyStockFragment({super.key});
@@ -82,7 +83,7 @@ class MyStockFragment extends StatelessWidget {
               ),
             ],
           ).pSymmetric(h: 20),
-          // const InterestStockList(),
+          const InterestStockList(),
         ],
       ),
     );
