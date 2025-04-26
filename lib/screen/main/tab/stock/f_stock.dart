@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ttos_app/common/common.dart';
 import 'package:ttos_app/common/widget/w_image_button.dart';
+import 'package:ttos_app/screen/main/tab/stock/search/s_search_stock.dart';
 import 'package:ttos_app/screen/main/tab/stock/tab/f_my_stock.dart';
 import 'package:ttos_app/screen/main/tab/stock/tab/f_todays_discovery.dart';
 import '../../../../common/dart/extension/num_extension.dart';
@@ -30,7 +31,7 @@ class _StockFragmentState extends State<StockFragment>
               ImageButton(
                 imagePath: '$basePath/icon/stock_search.png',
                 onTap: () {
-                  // Nav.push(const StockSearchScreen());
+                  Nav.push(const SearchStockScreen());
                 },
               ),
               ImageButton(
