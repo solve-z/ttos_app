@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ttos_app/screen/main/tab/stock/search/search_stock_data.dart';
 import 'package:ttos_app/screen/main/tab/stock/search/w_popular_search_stock_list.dart';
+import 'package:ttos_app/screen/main/tab/stock/search/w_search_auto_complete_list.dart';
 import 'package:ttos_app/screen/main/tab/stock/search/w_search_history_stock_list.dart';
 import 'package:ttos_app/screen/main/tab/stock/search/w_stock_search_app_bar.dart';
 
@@ -12,14 +13,17 @@ class SearchStockScreen extends StatefulWidget {
   State<SearchStockScreen> createState() => _SearchStockScreenState();
 }
 
-class _SearchStockScreenState extends State<SearchStockScreen> {
+class _SearchStockScreenState extends State<SearchStockScreen>
+    with SearchStockDataProvicder {
   final TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
-    Get.put(SearchStockData());
-
     super.initState();
+    Get.put(SearchStockData());
+    controller.addListener(() {
+      searchData.search(controller.text);
+    });
   }
 
   @override
@@ -34,11 +38,15 @@ class _SearchStockScreenState extends State<SearchStockScreen> {
       appBar: StockSearchAppBar(
         controller: controller,
       ),
-      body: ListView(
-        children: [
-          SearchHistoryStockList(),
-          PopularSearchStockList(),
-        ],
+      body: Obx(
+        () => searchData.autoCompleteList.isEmpty
+            ? ListView(
+                children: const [
+                  SearchHistoryStockList(),
+                  PopularSearchStockList(),
+                ],
+              )
+            : SearchAutoCompleteList(controller),
       ),
     );
   }
