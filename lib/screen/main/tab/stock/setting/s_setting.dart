@@ -6,6 +6,7 @@ import 'package:ttos_app/common/data/preference/prefs.dart';
 import 'package:ttos_app/common/widget/w_big_button.dart';
 import 'package:ttos_app/screen/main/tab/stock/setting/d_number.dart';
 import 'package:ttos_app/screen/main/tab/stock/setting/w_switch_menu.dart';
+import 'package:ttos_app/screen/opensource/s_opensource.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -63,7 +64,7 @@ class _SettingScreenState extends State<SettingScreen> {
           BigButton(
             '오픈소스 화면',
             onTap: () async {
-              // Nav.push(const OpensourceScreen());
+              Nav.push(const OpensourceScreen());
             },
           )
         ],
