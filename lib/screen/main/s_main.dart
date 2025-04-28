@@ -1,4 +1,5 @@
 import 'package:after_layout/after_layout.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:ttos_app/common/cli_common.dart';
 import 'package:ttos_app/screen/main/tab/tab_item.dart';

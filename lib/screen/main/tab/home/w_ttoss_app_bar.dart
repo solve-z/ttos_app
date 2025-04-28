@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ttos_app/common/common.dart';
 import 'package:ttos_app/screen/notification/s_notification.dart';
 
@@ -11,7 +12,7 @@ class TtossAppBar extends StatefulWidget {
 }
 
 class _TtossAppBarState extends State<TtossAppBar> {
-  bool _showRedDot = false;
+  final bool _showRedDot = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _TtossAppBarState extends State<TtossAppBar> {
             onTap: () {
               setState(() {
                 //알림 화면
-                Nav.push(NotificationScreen());
+                Nav.push(const NotificationScreen());
               });
             },
             child: Stack(
@@ -57,7 +58,11 @@ class _TtossAppBarState extends State<TtossAppBar> {
                     ),
                   )
               ],
-            ),
+            )
+                .animate(onComplete: (controller) => controller.repeat())
+                .shake(duration: 2000.ms, hz: 3)
+                .then()
+                .fadeOut(duration: 1000.ms),
           ),
           width10,
         ],

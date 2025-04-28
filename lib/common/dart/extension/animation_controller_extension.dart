@@ -1,4 +1,4 @@
-import 'package:ttos_app/common/cli_common.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/widgets.dart';
 
 extension AnimationControllerExtension on AnimationController {

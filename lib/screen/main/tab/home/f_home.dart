@@ -1,3 +1,4 @@
+import 'package:live_background/widget/live_background_widget.dart';
 import 'package:ttos_app/common/cli_common.dart';
 import 'package:ttos_app/common/common.dart';
 import 'package:ttos_app/common/widget/round_button_theme.dart';
@@ -9,7 +10,7 @@ import 'package:ttos_app/screen/main/s_main.dart';
 import 'package:ttos_app/screen/main/tab/home/bank_accounts_dummy.dart';
 import 'package:ttos_app/screen/main/tab/home/w_bank_account.dart';
 import 'package:ttos_app/screen/main/tab/home/w_ttoss_app_bar.dart';
-
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../../common/widget/w_big_button.dart';
 import '../../../dialog/d_color_bottom.dart';
 import '../../../dialog/d_confirm.dart';
@@ -25,6 +26,7 @@ class HomeFragment extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
+          LiveBackgroundWidget(),
           RefreshIndicator(
             edgeOffset: TtossAppBar.appBarHeight,
             onRefresh: () async {
@@ -53,7 +55,7 @@ class HomeFragment extends StatelessWidget {
                     ],
                   ))
                 ],
-              ).pSymmetric(h: 20),
+              ).pSymmetric(h: 20).animate().slideY(duration: 1002.ms).fadeIn(),
             ),
           ),
           const TtossAppBar(),
