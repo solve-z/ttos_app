@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ttos_app/common/common.dart';
 import 'package:ttos_app/screen/notification/s_notification.dart';
@@ -13,6 +14,7 @@ class TtossAppBar extends StatefulWidget {
 
 class _TtossAppBarState extends State<TtossAppBar> {
   final bool _showRedDot = false;
+  int _tappingCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +24,39 @@ class _TtossAppBarState extends State<TtossAppBar> {
       child: Row(
         children: [
           width10,
-          Image.asset(
-            "$basePath/icon/toss.png",
-            height: 30,
+          AnimatedContainer(
+            duration: 1000.ms,
+            curve: Curves.bounceIn,
+            height: _tappingCount > 2 ? 60 : 30,
+            child: Image.asset(
+              "$basePath/icon/toss.png",
+            ),
           ),
+          AnimatedCrossFade(
+              firstChild: Image.asset(
+                "$basePath/icon/toss.png",
+                height: 30,
+              ),
+              secondChild: Image.asset(
+                "$basePath/icon/map_point.png",
+                height: 30,
+              ),
+              crossFadeState: _tappingCount < 2
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              duration: 1500.ms),
           emptyExpanded,
-          Image.asset(
-            "$basePath/icon/map_point.png",
-            height: 30,
+          _tappingCount.text.make(),
+          Tap(
+            onTap: () {
+              setState(() {
+                _tappingCount++;
+              });
+            },
+            child: Image.asset(
+              "$basePath/icon/map_point.png",
+              height: 30,
+            ),
           ),
           width10,
           Tap(
