@@ -26,6 +26,7 @@ class AnimatedAppBar extends StatefulWidget {
 class _AnimatedAppBarState extends State<AnimatedAppBar> {
   Duration get duration => 10.ms;
   double scrollPosition = 0;
+
   late CurvedAnimation animation = CurvedAnimation(
       parent: widget.animationController, curve: Curves.bounceInOut);
 
@@ -79,24 +80,22 @@ class _AnimatedAppBarState extends State<AnimatedAppBar> {
                 child: const Arrow(
                   direction: AxisDirection.left,
                 )).p20(),
-            Positioned.fill(
-              child: Align(
-                alignment: Alignment.topRight,
-                child: TweenAnimationBuilder<Color?>(
-                  duration: 1000.ms,
-                  tween: ColorTween(
-                      begin: Colors.green,
-                      end: isTriggered ? Colors.orange : Colors.green),
-                  builder: (context, value, child) => ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        value ?? Colors.green,
-                        BlendMode.modulate,
-                      ),
-                      child: child),
-                  child: Image.asset(
-                    "$basePath/icon/map_point.png",
-                    height: 60,
-                  ),
+            Positioned(
+              left: animation.value * 200,
+              child: TweenAnimationBuilder<Color?>(
+                duration: 1000.ms,
+                tween: ColorTween(
+                    begin: Colors.green,
+                    end: isTriggered ? Colors.orange : Colors.green),
+                builder: (context, value, child) => ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      value ?? Colors.green,
+                      BlendMode.modulate,
+                    ),
+                    child: child),
+                child: Image.asset(
+                  "$basePath/icon/map_point.png",
+                  height: 60,
                 ),
               ),
             )
