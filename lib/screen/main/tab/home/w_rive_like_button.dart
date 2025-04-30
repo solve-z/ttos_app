@@ -37,7 +37,7 @@ class _RiveLikeButtonState extends State<RiveLikeButton> {
         widget.onTapLike(!widget.isLike);
       },
       child: RiveAnimation.asset(
-        "$baseRivePath/light_like.riv",
+        "$baseRivePath/light_like_2.riv",
         stateMachines: ['State Machine 1'],
         onInit: (Artboard art) {
           controller =
